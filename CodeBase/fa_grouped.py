@@ -9,3 +9,6 @@ def fa_grouped(lim_inf, lim_sup, datos):
             elif i == len(lim_inf) - 1 and lim_inf[i] <= dato <= lim_sup[i]:  # Para el último intervalo
                 frecuencias[i] += 1
                 break
+
+    return frecuencias
+    
