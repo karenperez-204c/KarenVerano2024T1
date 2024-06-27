@@ -14,4 +14,3 @@ def plot_barras(marcas_clase, frecuencias, marcas_texto):
     plt.title("Diagrama de barras", fontsize=25)
     plt.grid()
     plt.show()
-
