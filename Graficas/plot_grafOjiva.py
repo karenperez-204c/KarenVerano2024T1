@@ -1,10 +1,7 @@
 import matplotlib.pyplot as plt
 
-def plot_grafOjiva():
-    marcas_clase = [0.165, 0.495, 0.825, 1.155, 1.485]
+def plot_grafOjiva(marcas_clase, facum):
     valores_ref_eje = list(range(1, len(marcas_clase) + 1))
-    facum = [30, 50, 65, 80, 100]
-
     datos_x_ojiva = [0] + valores_ref_eje
     datos_y_ojiva = [0] + facum
 
@@ -25,4 +22,3 @@ def plot_grafOjiva():
     plt.title("Ojiva", fontsize=20)
     plt.grid()
     plt.show()
-

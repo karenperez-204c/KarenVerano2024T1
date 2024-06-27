@@ -1,24 +1,25 @@
 import math
 
 def clases_grouped(datos):
-    min_dato = min(datos)
-    max_dato = max(datos)
-    rango = max_dato - min_dato
-    
+    rango = max(datos) - min(datos)
     clases = 1 + 3.3 * math.log10(len(datos))
     clases_redondear = round(clases)
-    
     ancho = rango / clases_redondear
     
-    lim_inf = [min_dato + i * ancho for i in range(clases_redondear)]
-    lim_sup = [lim_inf[i] + ancho for i in range(clases_redondear)]
-    mrks = [(lim_inf[i] + lim_sup[i]) / 2 for i in range(clases_redondear)]
+    lim_inf = [min(datos)]
+    lim_sup = []
+    mrks = []
     
-  
-    lim_inf = [round(x, 3) for x in lim_inf]
-    lim_sup = [round(x, 3) for x in lim_sup]
-    mrks = [round(x, 3) for x in mrks]
+    for i in range(clases_redondear):
+        if i == 0:
+            lim_sup.append(round(lim_inf[-1] + ancho, 3))
+        else:
+            lim_inf.append(round(lim_sup[-1], 3))
+            lim_sup.append(round(lim_inf[-1] + ancho, 3))
+        mrks.append(round((lim_inf[-1] + lim_sup[-1]) / 2, 3))
+    
+    lim_sup[-1] = max(datos)
     
     clases_num = list(range(1, clases_redondear + 1))
     
-    return clases_num, lim_inf, lim_sup, mrks
+    return clases_num, [round(x, 3) for x in lim_inf], [round(x, 3) for x in lim_sup], [round(x, 3) for x in mrks]

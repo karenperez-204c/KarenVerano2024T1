@@ -3,5 +3,5 @@ def tabla(clase, fa_sorted, frecuencia_rel, frecuencia_rel_acum):
     print("----------", "---------------", "-------------------", "-------------------")
     
     for i in range(len(clase)):
-        print("{:^10}".format(f"Clase {clase[i]}"), "{:^15}".format(fa_sorted[i]), "{:^20.3f}".format(frecuencia_rel[i]), "{:^20.3f}".format(frecuencia_rel_acum[i]))
+        print("{:^8}".format(f" {clase[i]}"), "{:^15}".format(fa_sorted[i]), "{:^20.3f}".format(frecuencia_rel[i]), "{:^20.3f}".format(frecuencia_rel_acum[i]))
         
